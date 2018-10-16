@@ -1,0 +1,37 @@
+---
+title: "Leaflet Map"
+author: "Mudit Purohit"
+date: "October 17 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Source of Code
+[GitHub](https://github.com/muditpurohitt/lm). [Just click here!](https://github.com/muditpurohitt/lm)
+
+## Leaflet Map
+Create a leaflet map object.
+```{r cars}
+library(leaflet)
+m<- leaflet() %>% addTiles()
+
+```
+
+Creating the marker
+```{r}
+bpicon <- makeIcon(
+   iconUrl = "https://funkystock.photoshelter.com/gallery-image/Photos-of-the-Alhambra-Palace-in-Granada/G0000rEY45B8CgTw/I0000PhFclzdMx1Y/C0000QOfL3VGYA2c",
+   iconWidth = 30*408/255, iconHeight = 30,
+   iconAnchorX = 30*408/255/2, iconAnchorY = 30/2
+)
+```
+
+Adding the marker and displaying.
+```{r}
+pp<- c("<a href= 'https://www.alhambradegranada.org/en/info/historicalintroduction.asp' >Alhambra<br><img src='https://funkystock.photoshelter.com/gallery-image/Photos-of-the-Alhambra-Palace-in-Granada/G0000rEY45B8CgTw/I0000PhFclzdMx1Y/C0000QOfL3VGYA2c'></a>")
+m %>%
+   addTiles() %>%
+   addMarkers(lat=34.095287, lng= -118.1270146, popup = pp)
+```
